@@ -14,7 +14,7 @@
       <ul>
         <li ng-repeat="item in submarines">{{item.name}}
           <button ng-click="addToCart(item)" class="btn btn-success btn-xs">Add to cart</button>
-          <button ng-click="show_details = true" class="btn btn-info btn-xs">Details</button>
+          <button ng-click="show_details = true" class="btn btn-info btn-xs" ng-hide="show_details">Details</button>
           <ul ng-show="show_details">
             <li>{{item.depth}} ul</li>
             <li>{{item.power}}</li>
@@ -26,6 +26,7 @@
     </div>
     <div class="row">
       <h2>Shopping Cart</h2>
+      <h4>Order total: $<span ng-show="total">{{total}}</span></h4>
       <ul>
         <li ng-repeat="item in cart track by $index">{{item.name}}</li>
       </ul>

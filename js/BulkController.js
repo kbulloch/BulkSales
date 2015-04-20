@@ -6,13 +6,28 @@ submarineList.controller('SubmarinesCtrl', function SubmarinesCtrl($scope) {
    ];
    $scope.cart = [];
    $scope.total = 0;
-   $scope.addToCart = function(submarine) {
-     $scope.cart.push(submarine);
+
+   updatePrice = function() {
      var subtotal = 0;
      for (var i = 0; i < $scope.cart.length; i++) {
        var price = $scope.cart[i].price;
        subtotal += price;
      }
+     if ($scope.cart.length >= 3) {
+       $scope.total = subtotal * .1;
+     }
+     else {
      $scope.total = subtotal;
+     }
+   }
+
+   $scope.addToCart = function(submarine) {
+     $scope.cart.push(submarine);
+     updatePrice();
+   };
+   $scope.dropItem = function(index) {
+    //  var index = $scope.cart.indexOf(submarine);
+     $scope.cart.splice(index, 1);
+     updatePrice();
    };
 });

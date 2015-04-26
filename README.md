@@ -2,7 +2,7 @@
 
 #####AngularJS Exercise for Epicodus
 
-###By Kyle K Bulloch
+###By Kyle K Bulloch and Brett Moore
 
 ##Description
 
